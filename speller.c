@@ -5,39 +5,49 @@
 #include "dictionary.h"
 
 // Default dictionary
-#define DICTIONARY "dictionaries/large"
+#define DICTIONARY "dictionaries/small"
 
 
-int main(void)
+int main(int argc, char *argv[])
 {
-    // Check for correct number of args
-    // if (argc != 1)
-    // {
-    //     printf("This program takes no command line arguments. \n");
-    //     return 1;
-    // }
 
-    // Load dictionary
-    // dictionary needs to be a const char *
-    bool loaded = load(DICTIONARY);
+   // Check for correct number of args
+   if (argc != 1 && argc != 2)
+   {
+      printf("Usage: speller [dictionary]\n");
+      return 1;
+   }
 
-    // Exit if dictionary not loaded
-    if (!loaded)
-    {
-        printf("Could not load %s.\n", DICTIONARY);
-        return 1;
-    }
+   // Determine dictionary to use
+   char *dictionary = (argc == 2) ? argv[1] : DICTIONARY;
 
-    // Unload dictionary
-    bool unloaded = unload();
+   // Load dictionary
+   bool loaded = load(dictionary);
 
-    // Abort if dictionary not unloaded
-    if (!unloaded)
-    {
-        printf("Could not unload %s.\n", DICTIONARY);
-        return 1;
-    }
+   // Exit if dictionary not loaded
+   if (!loaded)
+   {
+     printf("Could not load %s.\n", dictionary);
+     return 1;
+   }
 
-    // Success
-    return 0;
+
+
+   // show a visual of the dictionary in the hash table
+   // show();
+
+
+
+   // Unload dictionary
+   bool unloaded = unload();
+
+   // Abort if dictionary not unloaded
+   if (!unloaded)
+   {
+     printf("Could not unload %s.\n", dictionary);
+     return 1;
+   }
+
+   // Success
+   return 0;
 }

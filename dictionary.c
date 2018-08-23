@@ -15,58 +15,87 @@ unsigned int wordcount = 0;
 
 
 
+
+
+
+
+
+
+
+
 // Loads dictionary into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
-    // initialize hashtable array pointers to NULL
-    for (int i = 0; i < ARRSIZE; i++)
-    {
-        hashtable[i] = NULL;
-    }
+   // explain the process
+   printf("Here's how the dictionary is loaded into memory: \n");
+   printf("\n");
+   printf("Array of %i node pointers created \n", ARRSIZE);
+   printf("opening dictionary file \n");
+   printf("Starting infinite loop to load dictionary into hash table like so: \n");
+   printf("   create node   write a word to node   hash the word   store the node at the hashed location on the array. \n");
+   printf("   any words that hash to the same place form a singly linked list at that location. \n");
+   printf("   reach EOF, break loop, close file, finished. \n");
 
-    // open dictionary file
-    FILE *fp = fopen(dictionary, "r");
-    if (fp == NULL)
-    {
-        return false;
-    }
+   // initialize hashtable array pointers to NULL
+   for (int i = 0; i < ARRSIZE; i++)
+   {
+      hashtable[i] = NULL;
+   }
 
-    // load dictionary into hash table with separate chaining
-    for (;;)
-    {
-        // create node
-        node *newnode = malloc(sizeof(node));
-        if (newnode == NULL)
-        {
-            wordcount = 0;
-            unload();
-            return false;
-        }
-        newnode->next = NULL;
+   // open dictionary file
+   FILE *fp = fopen(dictionary, "r");
+   if (fp == NULL)
+   {
+       return false;
+   }
 
-        // scan word into node
-        // implementing 'fscanf' here rather than in the outer loop removes the need to scan into a temp array first.
-        if (fscanf(fp, "%s", newnode->word) == EOF)
-        {
-            free(newnode);
-            break;
-        }
+   // load dictionary into hash table with separate chaining
+   for (;;)
+   {
+      // create node
+      node *newnode = malloc(sizeof(node));
+      if (newnode == NULL)
+      {
+         wordcount = 0;
+         unload();
+         return false;
+      }
+      newnode->next = NULL;
 
-        // hash word
-        unsigned int index = fnv1a(newnode->word);
+      // scan word into node
+      // implementing 'fscanf' here rather than in the outer loop removes the need to scan into a temp array first.
+      if (fscanf(fp, "%s", newnode->word) == EOF)
+      {
+         free(newnode);
+         break;
+      }
 
-        // store node in hash table
-        newnode->next = hashtable[index];
-        hashtable[index] = newnode;
+      // hash word
+      unsigned int index = fnv1a(newnode->word);
 
-        // record word count
-        wordcount++;
+      // store node in hash table
+      newnode->next = hashtable[index];
+      hashtable[index] = newnode;
 
-    }
+      // record word count
+      wordcount++;
 
-    fclose(fp);
-    return true;
+   }
+
+   fclose(fp);
+   return true;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

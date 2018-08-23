@@ -1,7 +1,10 @@
 // Implements a dictionary's functionality
 
 #include <stdio.h>
+
 // #include <cs50.h>
+#include <stdlib.h>
+
 #include <string.h>
 #include <strings.h>
 #include <ctype.h>
@@ -10,6 +13,9 @@
 
 // hashtable array
 node *hashtable[ARRSIZE];
+
+// record word count for 'size' function
+unsigned int wordcount = 0;
 
 
 
@@ -59,6 +65,7 @@ bool load(const char *dictionary)
 
         // record word count for 'size' function
         wordcount++;
+
     }
 
     fclose(fp);

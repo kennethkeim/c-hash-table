@@ -12,9 +12,7 @@
 #define ARRSIZE 143093
 
 // Prototypes
-bool check(const char *word);
 bool load(const char *dictionary);
-unsigned int size(void);
 bool unload(void);
 unsigned int fnv1a(const char *text);
 

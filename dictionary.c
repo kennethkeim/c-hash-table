@@ -1,7 +1,7 @@
 // Implements a dictionary's functionality
 
 #include <stdio.h>
-#include <cs50.h>
+// #include <cs50.h>
 #include <string.h>
 #include <strings.h>
 #include <ctype.h>
@@ -10,45 +10,6 @@
 
 // hashtable array
 node *hashtable[ARRSIZE];
-
-// record word count for 'size' function
-unsigned int wordcount = 0;
-
-
-
-// Returns true if word is in dictionary else false
-bool check(const char *word)
-{
-    // ensure word is lowercase
-    char temp[LENGTH + 1];
-    int i;
-    for (i = 0; i < strlen(word); i++)
-    {
-        temp[i] = tolower(word[i]);
-    }
-    temp[i] = '\0';
-
-    // hash word
-    unsigned int index = fnv1a(temp);
-
-    // search the linked list that exists at the hash location
-    node *trav = hashtable[index];
-    while (trav != NULL)
-    {
-        // compare strings
-        int n = strcasecmp(trav->word, word);
-        if (n == 0)
-        {
-            return true;
-        }
-
-        // point trav at next node if word is not found
-        trav = trav->next;
-    }
-
-    return false;
-}
-
 
 
 
@@ -102,15 +63,6 @@ bool load(const char *dictionary)
 
     fclose(fp);
     return true;
-}
-
-
-
-
-// Returns number of words in dictionary if loaded else 0 if not yet loaded
-unsigned int size(void)
-{
-    return wordcount;
 }
 
 

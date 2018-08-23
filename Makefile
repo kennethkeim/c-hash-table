@@ -12,7 +12,7 @@ HDRS = dictionary.h
 
 # space-separated list of libraries, if any,
 # each of which should be prefixed with -l
-LIBS =
+LIBS = 
 
 # space-separated list of source files
 SRCS = speller.c dictionary.c fnv1amod.c

@@ -6,7 +6,7 @@ I also used this to load a large 140,000 word dictionary, and it works well for 
 main.c, dictionary.h, and the makefile were written by the staff at Harvard's CS50x\
 I modified some of it\
 I implemented all the actual functions (everything in dictionary.c)\
-The hash function is the well known fnv1a, I modified it for my use\
+The hash function is the well known fnv1a, I modified it for my use
 
 The program loads the dictionary into the hash table and prints out a visual of what it looks like in memory.
 

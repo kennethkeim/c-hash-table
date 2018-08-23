@@ -10,16 +10,9 @@
 // hashtable array
 node *hashtable[ARRSIZE];
 
+
 // record word count
 unsigned int wordcount = 0;
-
-
-
-
-
-
-
-
 
 
 
@@ -27,8 +20,7 @@ unsigned int wordcount = 0;
 bool load(const char *dictionary)
 {
    // explain the process
-   printf("Here's how the dictionary is loaded into memory: \n");
-   printf("\n");
+   printf("Here's how the dictionary is loaded into memory: \n\n");
    printf("Array of %i node pointers created \n", ARRSIZE);
    printf("opening dictionary file \n");
    printf("Starting infinite loop to load dictionary into hash table like so: \n");
@@ -90,11 +82,28 @@ bool load(const char *dictionary)
 
 
 
+void show(void)
+{
+   printf("\n");
+   printf("Here's what it looks like in memory: \n");
 
 
+   for (int i = 0; i < ARRSIZE; i++)
+   {
+      printf("array[%i] ", i);
 
+      node *trav = hashtable[i];
+      while (trav != NULL)
+      {
+           node *trav2 = trav;
+           trav = trav->next;
+           printf("-> %s ", trav2->word);
+      }
+      printf("\n");
 
+   }
 
+}
 
 
 
@@ -103,27 +112,29 @@ bool load(const char *dictionary)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    // record number of nodes freed
-    unsigned int freecount = 0;
 
-    // free all nodes in hash table
-    for (int i = 0; i < ARRSIZE; i++)
-    {
-        node *trav = hashtable[i];
-        while (trav != NULL)
-        {
-            node *trav2 = trav;
-            trav = trav->next;
-            free(trav2);
-            freecount++;
-        }
-    }
+   // record number of nodes freed
+   unsigned int freecount = 0;
 
-    // check if all nodes freed
-    if (freecount < wordcount)
-    {
-        return false;
-    }
+   // free all nodes in hash table
+   for (int i = 0; i < ARRSIZE; i++)
+   {
+      node *trav = hashtable[i];
+      while (trav != NULL)
+      {
+         node *trav2 = trav;
+         trav = trav->next;
+         free(trav2);
+         freecount++;
+      }
+   }
 
-    return true;
+   // check if all nodes freed
+   if (freecount < wordcount)
+   {
+      return false;
+   }
+
+   printf("\nIterating over array and freeing all nodes, done. \n");
+   return true;
 }

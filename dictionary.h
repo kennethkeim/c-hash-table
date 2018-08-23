@@ -8,13 +8,17 @@
 // Maximum length for a word
 // (e.g., pneumonoultramicroscopicsilicovolcanoconiosis)
 #define LENGTH 45
-// prime number close to dictionary word count
-#define ARRSIZE 143093
+
+// array size
+// (prime number close to dictionary word count)
+#define ARRSIZE 101
+
 
 // Prototypes
 bool load(const char *dictionary);
 bool unload(void);
 unsigned int fnv1a(const char *text);
+void show(void);
 
 // node struct for words
 typedef struct node

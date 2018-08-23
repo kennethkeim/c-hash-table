@@ -1,15 +1,18 @@
-// //////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 // fnv.h
 // Copyright (c) 2011 Stephan Brumme. All rights reserved.
 // see http://create.stephan-brumme.com/disclaimer.html
 //
-
+//
 // compute FNV1a hash
 // originally developed by Fowler, Noll and Vo
 // http://isthe.com/chongo/tech/comp/fnv/
-
+//
 // This is an altered version of the FNV1a hash function.
 // I'm using mod to ensure the return value does not exceed the bounds of my hashtable array.
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 #include <stdio.h>
 #include <assert.h>

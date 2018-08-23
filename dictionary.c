@@ -1,4 +1,11 @@
 // demonstrates the hash table data structure in C
+//
+// ==========================================================================
+// I implemented everything in here myself
+// It was part of problem set in Harvard's CS50x
+// ==========================================================================
+
+
 
 #include <stdio.h>
 #include <stdlib.h>

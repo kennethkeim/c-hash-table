@@ -1,5 +1,13 @@
 // demonstrates the hash table data structure in C
 
+// ===========================================================================================
+// main.c, dictionary.h, and the makefile were written by the staff at Harvard's CS50x
+// I modified some of it
+// I implemented all the actual functions (everything in dictionary.c)
+// The hash function is the well known fnv1a, I modified it for my use
+// ===========================================================================================
+
+
 #include <ctype.h>
 #include <stdio.h>
 #include "dictionary.h"

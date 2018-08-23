@@ -5,7 +5,7 @@ CC = clang
 CFLAGS = -fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -Qunused-arguments -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wshadow
 
 # name for executable
-EXE = speller
+EXE = main
 
 # space-separated list of header files
 HDRS = dictionary.h
@@ -15,7 +15,7 @@ HDRS = dictionary.h
 LIBS =
 
 # space-separated list of source files
-SRCS = speller.c dictionary.c fnv1amod.c
+SRCS = main.c dictionary.c fnv1amod.c
 
 # automatically generated list of object files
 OBJS = $(SRCS:.c=.o)

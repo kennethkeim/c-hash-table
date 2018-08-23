@@ -5,7 +5,7 @@ I also used this to load a large 140,000 word dictionary, and it works well for 
 The program loads the dictionary into the hash table and prints out a visual of what it looks like in memory.
 
 ## Compile
-command 'make'
+command 'make'\
 Requires the make utility to be installed.
 
 ## Run

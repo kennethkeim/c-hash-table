@@ -1,4 +1,4 @@
-// Implements a spell-checker
+// demonstrates the hash table data structure in C
 
 #include <ctype.h>
 #include <stdio.h>

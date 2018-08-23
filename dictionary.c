@@ -1,4 +1,4 @@
-// Implements a dictionary's functionality
+// demonstrates the hash table data structure in C
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -81,13 +81,14 @@ bool load(const char *dictionary)
 
 
 
-
+// show a visual of the dictionary in the hash table
 void show(void)
 {
    printf("\n");
    printf("Here's what it looks like in memory: \n");
 
-
+   // iterate over each element of the array
+   // show the word or list of words at that location (if any)
    for (int i = 0; i < ARRSIZE; i++)
    {
       printf("array[%i] ", i);

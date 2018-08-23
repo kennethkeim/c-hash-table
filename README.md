@@ -126,4 +126,4 @@ array[98] -> abbott's\
 array[99] -> abbas -> aalesund\
 array[100] -> abamp -> abacus\
 \
-Iterating over array and freeing all nodes, done.\
+Iterating over array and freeing all nodes, done.

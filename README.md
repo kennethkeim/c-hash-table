@@ -20,6 +20,7 @@ Requires the make utility to be installed.
 ## Output
 Here's the output so you don't have to run it:
 
+```
 Here's how the dictionary is loaded into memory:\
 \
 Array of 101 node pointers created\
@@ -133,3 +134,4 @@ array[99] -> abbas -> aalesund\
 array[100] -> abamp -> abacus\
 \
 Iterating over array and freeing all nodes, done.
+```
